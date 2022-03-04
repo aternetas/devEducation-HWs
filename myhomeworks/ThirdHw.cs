@@ -69,5 +69,29 @@ namespace myhomeworks
             }
             return sum;
         }
+
+        // Пользователь вводит 1 положительное число (N). Выведите N-ое число ряда фибоначчи. В ряду фибоначчи каждое следующее число является суммой двух предыдущих. Первое и второе считаются равными 1.
+        public static int GetValueNOfFibonacci(int N)
+        {
+            int firstNumOfFibonacci = 1;
+            int secondNumOfFibonacci = 1;
+            int valueNOfFibonacci = 0;
+            int i = 2;
+
+            if (N == 1 || N == 2)
+            {
+                valueNOfFibonacci = 1;
+            }
+            while (i < N)
+            {
+                valueNOfFibonacci = firstNumOfFibonacci + secondNumOfFibonacci;
+                firstNumOfFibonacci = secondNumOfFibonacci;
+                secondNumOfFibonacci = valueNOfFibonacci;
+                i++;
+            }
+            return valueNOfFibonacci;
+        }
+
+
     }
 }
