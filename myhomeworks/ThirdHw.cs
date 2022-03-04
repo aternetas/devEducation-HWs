@@ -40,5 +40,34 @@ namespace myhomeworks
             }
             return biggestDivisor;
         }
+
+        // Пользователь вводит 2 числа (A и B). Вывести сумму всех чисел из диапазона от A до B, которые делятся без остатка на 7. (Учтите, что при вводе B может оказаться меньше A).
+        public static int GetSumOfAllNumbers(int a, int b)
+        {
+            int sum = 0; 
+            int i = 0; 
+
+            if (a < b)
+            {
+                for (i = a; i < b; i++)
+                {
+                    if (i % 7 == 0)
+                    {
+                        sum += i;
+                    }
+                }
+            }
+            else
+            {
+                for (i = b; i < a; i++)
+                {
+                    if (i % 7 == 0)
+                    {
+                        sum += i;
+                    }
+                }
+            }
+            return sum;
+        }
     }
 }
