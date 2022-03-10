@@ -116,5 +116,68 @@ namespace myhomeworks
             }
             return oddIndexesCount;
         }
+
+        // Поменять местами первую и вторую половину массива, например, для массива 1 2 3 4, результат 3 4 1 2,  или для 12345 - 45312. (task 8)
+        public static int[] SwapFirstAndSecondHalfs(int[] a)
+        {
+            int[] result = Copy(a);
+            int n = result.Length / 2;
+            int count = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                int tmp = result[i];
+                result[i] = result[n + 1 + count];
+                result[n + 1 + count] = tmp;
+                count++;
+            }
+            return result;
+        }
+
+        // Отсортировать массив по возрастанию одним из способов: пузырьком (Bubble), выбором (Select) или вставками (Insert). (task 9)
+        public static int[] SortAscendingSelect(int[] a)
+        {
+            int[] arraySortSelect = Copy(a);
+            int lenght = arraySortSelect.Length;
+
+            for (int i = 0; i < lenght - 1; i++)
+            {
+                int min = i;
+
+                for (int j = i + 1; j < lenght; j++)
+                {
+                    if (arraySortSelect[j] < arraySortSelect[min])
+                    {
+                        min = j;
+                    }
+                }
+
+                int tmp = arraySortSelect[i];
+                arraySortSelect[i] = arraySortSelect[min];
+                arraySortSelect[min] = tmp;
+            }
+            return arraySortSelect;
+        }
+
+        // Отсортировать массив по убыванию одним из способов, (отличным от способа в 9-м задании):  пузырьком(Bubble), выбором (Select) или вставками (Insert). (task 10)
+        public static int[] SortDescendingBubble(int[] a)
+        {
+            int[] arraySortBubble = Copy(a);
+            int lenght = arraySortBubble.Length;
+
+            for (int i = 0; i < lenght; i++)
+            {
+                for (int j = lenght - 1; j > i; j--)
+                {
+                    if (arraySortBubble[j] > arraySortBubble[j - 1])
+                    {
+                        int tmp = arraySortBubble[j];
+                        arraySortBubble[j] = arraySortBubble[j - 1];
+                        arraySortBubble[j - 1] = tmp;
+                    }
+                }
+            }
+            return arraySortBubble;
+        }
     }
 }
