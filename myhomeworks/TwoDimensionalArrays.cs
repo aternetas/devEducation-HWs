@@ -89,5 +89,27 @@ namespace myhomeworks
             string theBiggestIndex = $"[{maxI}, {maxJ}]";
             return theBiggestIndex;
         }
+
+        // Найти количество элементов массива, которые больше всех своих соседей одновременно (task 5)
+        public static int GetElementsBiggerItsNeighboursCount(int[,] a)
+        {
+            int count = 0;
+            for (int i = 0; i < a.GetLength(0); i++)
+            {
+                for (int j = 0; i < a.GetLength(1); j++)
+                {
+                    if (
+                        (i == 0 || a[i, j] > a[i - 1, j])
+                        && (i == a.GetLength(0) - 1 || a[i, j] > a[i + 1, j])
+                        && (j == 0 || a[i, j] > a[i, j - 1])
+                        && (j == a.GetLength(1) - 1 || a[i, j] > a[i, j + 1])
+                       )
+                    {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
     }
 }
