@@ -108,7 +108,7 @@ namespace myhomeworks
         }
 
         // Сделать реверс массива (массив в обратном направлении) (task 6)
-        public static int[] GetReverseArray(int[] a)
+        public static int[] ReverseArray(int[] a)
         {
             int[] arrayReverse = Copy(a);
             int n = arrayReverse.Length / 2;
