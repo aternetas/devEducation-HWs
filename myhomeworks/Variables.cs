@@ -52,6 +52,7 @@ namespace myhomeworks
         // Пользователь вводит 4 числа (X1, Y1, X2, Y2), описывающие координаты 2-х точек на координатной плоскости. Выведите уравнение прямой в формате Y=AX+B, проходящей через эти точки. (task 5)
         public static string GetEquationOfLine(double x1, double x2, double y1, double y2)
         {
+            string result = "";
             if (x1 == x2)
             {
                 throw new Exception("x1 must be != x2");
@@ -59,7 +60,19 @@ namespace myhomeworks
 
             double a = (y1 - y2) / (x1 - x2);
             double b = y2 - (a * x2);
-            string result = $"уравнение прямой: y = {a}x + {b}";
+
+            if (a == 0)
+            {
+                result += $"уравнение прямой: y = {b}";
+            }
+            else if (b == 0)
+            {
+                result += $"уравнение прямой: y = {a}x";
+            }
+            else 
+            {
+                result += $"уравнение прямой: y = {a}x + {b}";
+            }
             return result;
         }
     }
