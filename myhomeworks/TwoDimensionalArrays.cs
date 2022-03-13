@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace myhomeworks
 {
-    static class TwoDimensionalArrays
+    public static class TwoDimensionalArrays
     {
         // Найти минимальный элемент массива (task 1)
         public static int FindTheSmallestElement(int[,] a)
         {
-            int theSmallestElement = a[0, 0];
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int theSmallestElement = a[0, 0];
             for (int i = 0; i < a.GetLength(0); i++)
             {
                 for (int j = 0; j < a.GetLength(1); j++)
@@ -29,8 +33,12 @@ namespace myhomeworks
         // Найти максимальный элемент массива (task 2)
         public static int FindTheBiggestElement(int[,] a)
         {
-            int theBiggestElement = a[0, 0];
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int theBiggestElement = a[0, 0];
             for (int i = 0; i < a.GetLength(0); i++)
             {
                 for (int j = 0; j < a.GetLength(1); j++)
@@ -47,6 +55,11 @@ namespace myhomeworks
         // Найти индекс минимального элемента массива (task 3)
         public static string FindIndexOfTheSmallestElement(int[,] a)
         {
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
+
             int theSmallestElement = a[0, 0];
             int minI = 0;
             int minJ = 0;
@@ -62,7 +75,6 @@ namespace myhomeworks
                     }
                 }
             }
-
             string theSmallestIndex = $"[{minI}, {minJ}]";
             return theSmallestIndex;
         }
@@ -70,6 +82,11 @@ namespace myhomeworks
         // Найти индекс максимального элемента массива (task 4)
         public static string FindIndexOfTheBiggestElement(int[,] a)
         {
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
+
             int theBiggestElement = a[0, 0];
             int maxI = 0;
             int maxJ = 0;
@@ -85,7 +102,6 @@ namespace myhomeworks
                     }
                 }
             }
-
             string theBiggestIndex = $"[{maxI}, {maxJ}]";
             return theBiggestIndex;
         }
@@ -93,6 +109,11 @@ namespace myhomeworks
         // Найти количество элементов массива, которые больше всех своих соседей одновременно (task 5)
         public static int GetElementsBiggerItsNeighboursCount(int[,] a)
         {
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
+
             int count = 0;
             for (int i = 0; i < a.GetLength(0); i++)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace myhomeworks
 {
-    static class LinearArrays
+    public static class LinearArrays
     {
         public static int[] Copy(int[] a)
         {
@@ -18,8 +18,12 @@ namespace myhomeworks
         // Найти минимальный элемент массива (task 1)
         public static int FindTheSmallestElement(int[] a)
         {
-            int theSmallestElement = a[0];
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int theSmallestElement = a[0];
             for (int i = 1; i < a.Length; i++)
             {
                 if (a[i] < theSmallestElement)
@@ -33,8 +37,12 @@ namespace myhomeworks
         // Найти максимальный элемент массива (task 2)
         public static int FindTheBiggestElement(int[] a)
         {
-            int theBiggestElement = a[0];
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int theBiggestElement = a[0];
             for (int i = 1; i < a.Length; i++)
             {
                 if (a[i] > theBiggestElement)
@@ -48,8 +56,12 @@ namespace myhomeworks
         // Найти индекс минимального элемента массива (task 3)
         public static int FindIndexOfTheSmallestElement(int[] a)
         {
-            int theSmallestIndex = 0;
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int theSmallestIndex = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] < a[theSmallestIndex])
@@ -63,8 +75,12 @@ namespace myhomeworks
         // Найти индекс максимального элемента массива (task 4)
         public static int FindIndexOfTheBiggestElement(int[] a)
         {
-            int theBiggestIndex = 0;
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int theBiggestIndex = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] > a[theBiggestIndex])
@@ -78,8 +94,12 @@ namespace myhomeworks
         // Посчитать сумму элементов массива с нечетными индексами (task 5)
         public static int FindSumOfElementsWithOddIndexes(int[] a)
         {
-            int sum = 0;
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int sum = 0;
             for (int i = 1; i < a.Length; i += 2)
             {
                 sum += a[i];
@@ -105,8 +125,12 @@ namespace myhomeworks
         // Посчитать количество нечетных элементов массива (task 7)
         public static int GetOddIndexesCount(int[] a)
         {
-            int oddIndexesCount = 0;
+            if (a.Length == 0)
+            {
+                throw new Exception("array must contain elements");
+            }
 
+            int oddIndexesCount = 0;
             for (int i = 1; i < a.Length; i += 2)
             {
                 if (i % 2 != 0)
