@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace myhomeworks
 {
-    static class Variables
+    public static class Variables
     {
         // Пользователь вводит 2 числа (A и B). Выведите в консоль результат деления A на B и остаток от деления. (task 1)
         public static void GetQuotientAndRemainder(double a, double b, out double quotient, out double remainder)
