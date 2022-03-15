@@ -11,9 +11,14 @@ namespace myhomeworks
         // Пользователь вводит 2 числа (A и B). Выведите в консоль результат деления A на B и остаток от деления. (task 1)
         public static void GetQuotientAndRemainder(double a, double b, out double quotient, out double remainder)
         {
+            if (b == 0)
+            {
+                throw new Exception("b must be != 0");
+            }
+
             quotient = a / b;
             remainder = a % b;
-        }
+        }        
 
         // Пользователь вводит 2 числа (A и B). Выведите в консоль решение (5 * a + b * b)/(b - a). (task 2)
         public static double GetResultOfFraction(double a, double b)

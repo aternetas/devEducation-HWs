@@ -5,6 +5,27 @@ namespace myhomeworks.Test
 {
     public class VariablesTests
     {
+        [TestCase(15, 3, 5, 0)]
+        [TestCase(0, 1, 0, 0)]
+        [TestCase(-10, 3, -3.3333333333333335, -1)]
+        [TestCase(-43.4, -4, 10.85d, -3.3999999999999986)]
+        public void GetQuotientAndRemainderTest(double a, double b, double expectedQ, double expectedR)
+        {
+            double actualQ;
+            double actualR;
+            Variables.GetQuotientAndRemainder(a, b, out actualQ, out actualR);
+            Assert.AreEqual(actualQ, expectedQ);
+            Assert.AreEqual(actualR, expectedR);
+        }
+
+        [TestCase(4, 0)]
+        public void GetQuotientAndRemainderTest_WhenBIsEqualZero_ShouldThrowException(double a, double b)
+        {
+            double result1;
+            double result2;
+            Assert.Throws<Exception>(() => Variables.GetQuotientAndRemainder(a, b, out result1, out result2));
+        }
+
         [TestCase(32.2, 53.1, 142.6129186602871)]
         [TestCase(0, 1, 1)]
         [TestCase(1, 0, -5)]
@@ -19,6 +40,16 @@ namespace myhomeworks.Test
         public void GetResultOfFractionTest_WhenBIsEqualA_ShouldThrowException(double a, double b)
         {
             Assert.Throws<Exception>(() => Variables.GetResultOfFraction(a, b));
+        }
+
+        [TestCase("abc", "qwe", "qwe", "abc")]
+        [TestCase("55", "99", "99", "55")]
+        [TestCase("", "", "", "")]
+        public void SwapTwoStringsTest(string a, string b, string expectedA, string expectedB)
+        {
+            Variables.SwapTwoStrings(ref a, ref b);
+            Assert.AreEqual(a, expectedA);
+            Assert.AreEqual(b, expectedB);
         }
 
         [TestCase(5, 2, 1, -0.2)]
