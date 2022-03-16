@@ -102,6 +102,35 @@ namespace myhomeworks
             return result;
         }
 
+        // Пользователь вводит 3 числа (A, B и С). Выведите в консоль решение(значения X) квадратного уравнения стандартного вида, где ax²+bx+c=0 (task 4)
+        public static double[] GetXOfQuadraticEquation(double a, double b, double c)
+        {
+            if (a == 0)
+            {
+                throw new Exception("a must be !=  0");
+            }
+
+            double discriminant = Math.Pow(b, 2) - 4 * a * c;
+            double[] result1= new double[2];
+            double[] result2= new double[1];
+            double root = Math.Sqrt(discriminant);
+            if (discriminant > 0)
+            {
+                result1[0] = (-b + root) / (2 * a);
+                result1[1] = (-b - root) / (2 * a);
+                return result1;
+            }
+            else if (discriminant == 0)
+            {
+                result2[0] = -b / 2 * a;
+                return result2;
+            }
+            else
+            {
+                throw new Exception("корни отсутствуют");
+            }
+        }
+
         // Пользователь вводит двузначное число. Выведите в консоль прописную запись этого числа. Например при вводе “25” в консоль будет выведено “двадцать пять”. (task 5)
         public static string WriteNumberbyLetters(int a)
         {
