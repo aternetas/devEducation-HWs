@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace myhomeworks
 {
-    static class IfElse
+    public static class IfElse
     {
         // Пользователь вводит 2 числа (A и B). Если A>B, подсчитать A+B, если A=B, подсчитать A*B, если A<B, подсчитать A-B. (task 1)
         public static double GetResultOfNumbersComparison(double a, double b)
@@ -113,11 +113,11 @@ namespace myhomeworks
             double discriminant = Math.Pow(b, 2) - 4 * a * c;
             double[] result1= new double[2];
             double[] result2= new double[1];
-            double root = Math.Sqrt(discriminant);
+            double squareRoot = Math.Sqrt(discriminant);
             if (discriminant > 0)
             {
-                result1[0] = (-b + root) / (2 * a);
-                result1[1] = (-b - root) / (2 * a);
+                result1[0] = (-b + squareRoot) / (2 * a);
+                result1[1] = (-b - squareRoot) / (2 * a);
                 return result1;
             }
             else if (discriminant == 0)
