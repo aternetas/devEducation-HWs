@@ -86,7 +86,11 @@ namespace myhomeworks
             {
                 return biggestDivisor;
             }
-            if (a < 0)
+            else if (a == 1)
+            {
+                throw new Exception("divisor does not exist");
+            }
+            else if (a < 0)
             {
                 a *= -1;
             }
@@ -101,7 +105,7 @@ namespace myhomeworks
         }
 
         // Пользователь вводит 2 числа (A и B). Вывести сумму всех чисел из диапазона от A до B, которые делятся без остатка на 7. (Учтите, что при вводе B может оказаться меньше A). (task 5)
-        public static int GetSumOfAllNumbersWhichDivideBySeven(int a, int b)
+        public static int GetSumOfAllNumbersWhichAreDividedBySeven(int a, int b)
         {
             int sum = 0;
             if (a > b)
