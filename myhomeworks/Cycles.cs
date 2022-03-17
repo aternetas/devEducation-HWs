@@ -6,80 +6,90 @@ using System.Threading.Tasks;
 
 namespace myhomeworks
 {
-    static class ThirdHw
+    public static class Cycles
     {
         // Пользователь вводит 2 числа (A и B). Возвести число A в степень B. (task 1)
         public static int RaiseNumToAPower(int a, int b)
         {
-
+            if (b < 0)
+            {
+                throw new Exception("b must be >= 0");
+            }
             int result = 1;
-            int num = 1;
-            int powerOfNum = 1;
-
-            if (a < 0 && b < 0)
+            int num = Math.Abs(a);
+            if (a == 0)
             {
-                throw new Exception("the answer is rational number, but correct result of this method is only for integers. try again");
+                result = 0;
             }
-
-            if (a == 1)
+            if (b == 0)
             {
-                if (b == -1)
-                {
-                    result = 1;
-                    return result;
-                }
+                return result;
             }
-
-            if (a > 0 && b < 0 && b % 2 != 0)
+            for (int i = 1; i <= b; i++)
             {
-                throw new Exception("the answer is rational number, but correct result of this method is only for integers. try again");
+                result *= num;
             }
-
-
-            num = Math.Abs(a);
-            powerOfNum = Math.Abs(b);
-
-            for (int i = 1; i <= powerOfNum; i++)
-            {
-                result = result * num;
-            }
-
-
             if (a < 0 && b % 2 != 0)
             {
                 result *= -1;
             }
-            if (b < 0 && b % 2 != 0)
+            return result;
+        }
+
+        //Пользователь вводит 1 число(A). Вывести все числа от 1 до 1000, которые делятся на A. (task 2)
+        public static int[] WriteAllNumbersWhichAreDividedByA(int a)
+        {
+            if (a < 1 || a > 1000)
             {
-                result *= -1;
+                throw new Exception("0 < a < 1001");
             }
 
+            int count = 0;
+            for (int i = a; i <= 1000; i += a)
+            {
+                count++;
+            }
+            int[] result = new int[count];
+            int index = 0;
+            for (int i = a; i <= 1000; i += a)
+            {
+                result[index] = i;
+                index++;
+            }
             return result;
         }
 
         // Пользователь вводит 1 число (A). Найдите количество положительных целых чисел, квадрат которых меньше A. (task 3)
         public static int GetCountOfPositiveNumbers(int a)
         {
-            int countOfNumbers = 0;
-
-            while(countOfNumbers * countOfNumbers < a)
+            if (a <= 0)
             {
-                countOfNumbers++;
+                throw new Exception("a must be > 0");
             }
-            
+
+            int countOfNumbers = 0;
+            for (int i = 1; i < a; i++)
+            {
+                while (countOfNumbers * countOfNumbers < a)
+                {
+                    countOfNumbers++;
+                }
+            }         
             return countOfNumbers - 1;
         }
 
         // Пользователь вводит 1 число (A). Вывести наибольший делитель (кроме самого A) числа A. (task 4)
         public static int GetBiggestDivisor(int a)
         {
+            int biggestDivisor = 0;
+            if (a == 0)
+            {
+                return biggestDivisor;
+            }
             if (a < 0)
             {
                 a *= -1;
             }
-
-            int biggestDivisor = 0;
-
             for (int i = a - 1; i != 1; i--)
             {
                 if (a % i == 0 && a / i == 2)
@@ -91,29 +101,20 @@ namespace myhomeworks
         }
 
         // Пользователь вводит 2 числа (A и B). Вывести сумму всех чисел из диапазона от A до B, которые делятся без остатка на 7. (Учтите, что при вводе B может оказаться меньше A). (task 5)
-        public static int GetSumOfAllNumbers(int a, int b)
+        public static int GetSumOfAllNumbersWhichDivideBySeven(int a, int b)
         {
-            int sum = 0; 
-            int i = 0; 
-
-            if (a < b)
+            int sum = 0;
+            if (a > b)
             {
-                for (i = a; i < b; i++)
-                {
-                    if (i % 7 == 0)
-                    {
-                        sum += i;
-                    }
-                }
+                int tmp = a;
+                a = b;
+                b = tmp;
             }
-            else
+            for (int i = a; i <= b; i++)
             {
-                for (i = b; i < a; i++)
+                if (i % 7 == 0)
                 {
-                    if (i % 7 == 0)
-                    {
-                        sum += i;
-                    }
+                    sum += i;
                 }
             }
             return sum;
