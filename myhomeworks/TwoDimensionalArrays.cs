@@ -53,57 +53,49 @@ namespace myhomeworks
         }
 
         // Найти индекс минимального элемента массива (task 3)
-        public static string FindIndexOfTheSmallestElement(int[,] a)
+        public static int[] FindIndexOfTheSmallestElement(int[,] a)
         {
             if (a.Length == 0)
             {
                 throw new Exception("array must contain elements");
             }
 
-            int theSmallestElement = a[0, 0];
-            int minI = 0;
-            int minJ = 0;
-
+            int[] result = new int[2] { 0, 0 };
             for (int i = 0; i < a.GetLength(0); i++)
             {
                 for (int j = 0; j < a.GetLength(1); j++)
                 {
-                    if (a[i, j] < theSmallestElement)
+                    if (a[i, j] < a[result[0], result[1]])
                     {
-                        minI = i;
-                        minJ = j;
+                        result[0] = i;
+                        result[1] = j;
                     }
                 }
             }
-            string theSmallestIndex = $"[{minI}, {minJ}]";
-            return theSmallestIndex;
+            return result;
         }
 
         // Найти индекс максимального элемента массива (task 4)
-        public static string FindIndexOfTheBiggestElement(int[,] a)
+        public static int[] FindIndexOfTheBiggestElement(int[,] a)
         {
             if (a.Length == 0)
             {
                 throw new Exception("array must contain elements");
             }
 
-            int theBiggestElement = a[0, 0];
-            int maxI = 0;
-            int maxJ = 0;
-
+            int[] result = new int[2] { 0, 0 };
             for (int i = 0; i < a.GetLength(0); i++)
             {
                 for (int j = 0; j < a.GetLength(1); j++)
                 {
-                    if (a[i, j] > theBiggestElement)
+                    if (a[i, j] > a[result[0], result[1]])
                     {
-                        maxI = i;
-                        maxJ = j;
+                        result[0] = i;
+                        result[1] = j;
                     }
                 }
             }
-            string theBiggestIndex = $"[{maxI}, {maxJ}]";
-            return theBiggestIndex;
+            return result;
         }
 
         // Найти количество элементов массива, которые больше всех своих соседей одновременно (task 5)
