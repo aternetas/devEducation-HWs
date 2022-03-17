@@ -146,14 +146,12 @@ namespace myhomeworks
         {
             int[] result = Copy(a);
             int n = result.Length / 2;
-            int count = 0;
-
+            int count = n + result.Length % 2;
             for (int i = 0; i < n; i++)
             {
                 int tmp = result[i];
-                result[i] = result[n + 1 + count];
-                result[n + 1 + count] = tmp;
-                count++;
+                result[i] = result[i + count];
+                result[i + count] = tmp;
             }
             return result;
         }
